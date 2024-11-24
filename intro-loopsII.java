@@ -1,33 +1,26 @@
 import java.util.*;
 import java.io.*;
-public class series{
-public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        int t = sc.nextInt(); // Number of queries
-        
-        while (t-- > 0) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int n = sc.nextInt();
-            
-            int term = a + b;
-            StringBuilder sb = new StringBuilder();
-            
-            for (int i = 0; i < n; i++) {
-                sb.append(term).append(" ");
-                term += (2 << i) * b; // 1 << i is equivalent to 2^i
+
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            int term = a;
+            for(int j=0; j<n;j++){
+                term+=Math.pow(2, j)*b;
+            System.out.print(term+" ");
             }
-            
-            System.out.println(sb.toString().trim()); // Print the series
+        System.out.println();
         }
-        
-        sc.close();
+        in.close();
     }
 }
-
-/*input
-  2
+/* input
+2
 0 2 10
 5 3 5
 Output
